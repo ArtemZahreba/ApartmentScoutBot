@@ -20,7 +20,7 @@ class ManagerDB:
 
         # Перевірка на наявність дубліката
         cursor.execute('''
-        SELECT 1 FROM Test_Apartments WHERE olx_id = ?
+        SELECT 1 FROM Apartments WHERE olx_id = ?
         ''', (olx_id,))
 
         if cursor.fetchone() is not None:
@@ -30,7 +30,7 @@ class ManagerDB:
 
         # Виконання SQL-запиту для додавання нового запису
         cursor.execute('''
-        INSERT INTO Test_Apartments (olx_id, url, price, parsing_date)
+        INSERT INTO Apartments (olx_id, url, price, parsing_date)
         VALUES (?, ?, ?, ?)
         ''', (olx_id, url, price, parsing_date))
 
@@ -55,7 +55,7 @@ class ManagerDB:
 
         # Виконання SQL-запиту для вибірки записів за останні 7 днів
         cursor.execute('''
-        SELECT * FROM Test_Apartments
+        SELECT * FROM Apartments
         WHERE parsing_date >= ?
         ''', (seven_days_ago_date,))
 
@@ -76,7 +76,7 @@ class ManagerDB:
 
         # Виконання SQL-запиту для перевірки наявності olx_id
         cursor.execute('''
-        SELECT 1 FROM Test_Apartments WHERE olx_id = ?
+        SELECT 1 FROM Apartments WHERE olx_id = ?
         ''', (olx_id,))
 
         # Отримання результату
