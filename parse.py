@@ -66,3 +66,10 @@ class Parse:
             result['date'] += list_date
 
         return result
+
+
+r = Parse()
+
+a = r.get_data()
+
+print(a)

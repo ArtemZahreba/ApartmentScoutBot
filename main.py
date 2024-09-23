@@ -44,6 +44,11 @@ class MainProgram:
 
         return data
 
+    def get_month(self):
+        data = self.m_db.get_recent_apartments(days=30)
+
+        return data
+
     def get_clear_data(self) -> list:
 
         ans = []

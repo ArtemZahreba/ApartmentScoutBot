@@ -95,3 +95,9 @@ class ManagerText:
             text += f'{count}. {i} \n'
 
         return text
+
+    def get_start_bot_text(self):
+        text = '''Привіт! Я зараз почнаю працювати. Буду працювати ≈ 2 годинии 
+        '''
+
+        return text

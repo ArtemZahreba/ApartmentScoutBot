@@ -42,7 +42,7 @@ class ManagerDB:
 
         return (True, (olx_id, url, price, parsing_date))
 
-    def get_recent_apartments(self):
+    def get_recent_apartments(self, days=7):
         db_path = self.file_path
 
         # Встановлюємо з'єднання з базою даних
@@ -50,7 +50,7 @@ class ManagerDB:
         cursor = conn.cursor()
 
         # Обчислюємо дату 7 днів тому
-        seven_days_ago = datetime.now() - timedelta(days=7)
+        seven_days_ago = datetime.now() - timedelta(days=days)
         seven_days_ago_date = seven_days_ago.date().strftime("%Y-%m-%d %H:00")
 
         # Виконання SQL-запиту для вибірки записів за останні 7 днів
